@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "DrivePark",
+    "description": "Drivepark est une application qui permet de savoir les places de parkings autour de vous",
+    "slug": "DriveParks",
+    "privacy": "public",
+    "sdkVersion": "32.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/images/app-icon.png",
+    "splash": {
+      "image": "./src/images/launch.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1886FE"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}
