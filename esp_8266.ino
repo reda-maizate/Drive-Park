@@ -48,17 +48,17 @@ delay(500);
 Serial.print(".");
 }
 Serial.println("");
-Serial.println("WiFi OK"); // connexion OK, on demarre le server
+Serial.println("WiFi OK"); // Connexion OK, démarrage du serveur
 server.begin();
 Serial.println("Server OK");
  
-Serial.println(WiFi.localIP()); // On indique sur le port serie l'adresse ip
+Serial.println(WiFi.localIP()); // On indique sur le port serie l'adresse IP
 }
 
 
 
 void loop() {
-WiFiClient client = server.available();// intéroger lsereur s'il est dispo
+WiFiClient client = server.available();// Interroger le serveur si il est dispo
 if(!client){
 return;
 }
@@ -72,12 +72,12 @@ String request = client.readStringUntil( '\r' );
 client.flush();
 {
  
-// LED CLASSIQUE
+// LED 
 if ( request.indexOf( "up" ) != -1 )
- up() ;// souleve on
+ up() ;// Barrière UP
 
 if ( request.indexOf( "down" ) != -1 )
- down(); // descend barriere 
+ down(); // Barrière down 
 if ( request.indexOf( "action" ) != -1 )
  action(); // action ( up / 5S / down )
 
