@@ -1,0 +1,78 @@
+html {
+    height: 100%;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #353b48;
+    min-height: 100%;
+}
+.box{
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.box h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 2em;
+}
+.box input[type="mail"], .box input[type="password"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2575fc;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+}
+.box input[type="mail"]:focus, .box input[type="password"]:focus{
+    animation-duration: 10ms;
+    width: 280px;
+    border-color: #6a11cb;
+}
+.box input[type="submit"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2575fc;
+    padding: 14px 40px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.box input[type="submit"]:hover{
+    background: #2575fc;
+}
+
+/* ==========================================================================
+Footer Section
+========================================================================== */
+.footer-section{
+    background-color: #330867;
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+}
+.footer-section p{
+    color: #fff;
+    font-size: 14px;
+    margin: 0;
+}
