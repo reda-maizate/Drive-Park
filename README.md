@@ -6,7 +6,7 @@ L'accès à nos parkings seront automatisé avec des QR collées sur les pare-br
 ## Démonstration de la partie IoT 😎
 Vous pouvez retrouver la [vidéo](https://www.youtube.com/watch?v=yzvRGzI3Ci8) sur youtube.
 
-![IoT](https://github.com/blluetomato/Drivepark_pub/blob/master/DrivePark%20-%20Website/img/final_5d066b662275250013c63dfd_655083.mp4)
+![IoT](https://github.com/blluetomato/Drivepark_pub/blob/master/DrivePark%20-%20Website/img/driveparkiot.gif)
 
 ## L'application en React Native ! 💪
 Vous pouvez retrouver la [vidéo](https://www.youtube.com/watch?v=5hDyHZYde1s) de l'application sur youtube.
