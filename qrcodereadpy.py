@@ -11,9 +11,11 @@ from fbcon import envoi
 token = False
 r = None
 
+## arduino_IP here ##
+ip_arduino = ""
 cnx = mysql.connector.connect(user='root', password='root',host='127.0.0.1',port='3307' , database='drivepark')
 
-#print('hello')
+
 mycursor = cnx.cursor()
 mycursor.execute("SELECT * FROM  clients")
 myresult = mycursor.fetchall()
@@ -23,14 +25,12 @@ data = []
 
 for x in myresult:
    qrliste.append(x[3])
-   #data.append[x[1],x[2]]
    print(x[3])
 
 for i,el in enumerate(qrliste):
     fmt = 'b\''+el+'\''
     qrliste[i] = fmt
-#print("b'1234567'" in qrliste)
-#print(qrliste[0])
+
 
 
 
@@ -50,9 +50,9 @@ time.sleep(2)
 
 
 def decode(im):
-    # Find barcodes and QR codes
+
     decodedObjects = pyzbar.decode(im)
-    # Print results
+
     for obj in decodedObjects:
         print('Type : ', obj.type)
         print('Data : ', obj.data, '\n')
@@ -62,9 +62,9 @@ def decode(im):
 font = cv2.FONT_HERSHEY_SIMPLEX
 
 while (cap.isOpened()):
-    # Capture frame-by-frame
+
     ret, frame = cap.read()
-    # Our operations on the frame come here
+
     im = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
     decodedObjects = decode(im)
@@ -72,14 +72,14 @@ while (cap.isOpened()):
     for decodedObject in decodedObjects:
         points = decodedObject.polygon
 
-        # If the points do not form a quad, find convex hull
+
         if len(points) > 4:
             hull = cv2.convexHull(np.array([point for point in points], dtype=np.float32))
             hull = list(map(tuple, np.squeeze(hull)))
         else:
             hull = points;
 
-        # Number of points in the convex hull
+     
         n = len(hull)
         # Draw the convext hull
         for j in range(0, n):
@@ -89,15 +89,15 @@ while (cap.isOpened()):
         y = decodedObject.rect.top
 
         print(x, y)
-        #print(decodedObject.data[1:])
+
 
         print('Type : ', decodedObject.type)
         print('Data : ', decodedObject.data,str(decodedObject.data) ,'\n')
         if str(decodedObject.data) in qrliste:
-            print("XXXXXXXXXXXXX-XXXXXXXXXXXXXX [acccess] Hello XXXXXXXXXXXXX-XXXXXXXXXXXXXXXX")
+            print("XXXXXXXXXXXXX-XXXXXXXXXXXXXX [acccess]  XXXXXXXXXXXXX-XXXXXXXXXXXXXXXX")
            
-            r = requests.get("http://192.168.43.118/action")  #envoi requete arduino
-            envoi()    #envoi sur firebase
+            r = requests.get(f"http://{ip_arduino}action")  
+            envoi()    
            # print(r)
             token = True
             break
@@ -106,7 +106,6 @@ while (cap.isOpened()):
         barCode = str(decodedObject.data)
         cv2.putText(frame, barCode, (x, y), font, 1, (0, 255, 255), 2, cv2.LINE_AA)
 
-    # Display the resulting frame
     cv2.imshow('frame', frame)
     key = cv2.waitKey(1)
     if key & 0xFF == ord('q'):
@@ -114,7 +113,7 @@ while (cap.isOpened()):
     elif key & 0xFF == ord('s'):  # wait for 's' key to save
         cv2.imwrite('Capture.png', frame)
 
-    # When everything done, release the capture
+ 
     
 cap.release()
 
