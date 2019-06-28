@@ -14,4 +14,6 @@ Vous pouvez retrouver la [vidéo](https://www.youtube.com/watch?v=5hDyHZYde1s) d
 
 ![App](https://media.giphy.com/media/lrhjLkNjQoRj5byV0w/giphy.gif)
 
+@Credit : reda-maizate, blluetomato, sebWNN, LasCC, Bilel Aissaoui
+
 
